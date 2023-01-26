@@ -8,7 +8,7 @@ import Restaurant from './page/Restaurant.vue';
 
 const routes = [
     {path: '/', component: Home },
-    {path: '/restaurant', component: Restaurant },
+    {name: 'Restaurant', path: '/restaurant/:name', component: Restaurant },
 ]
 const router = createRouter({
     history: createWebHashHistory(),

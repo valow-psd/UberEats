@@ -1,15 +1,21 @@
 <template>
-    <p>Restaurant</p>
+    <p>a{{ $route.params.name }}</p>
 </template>
 
 <script>
 import { onMounted } from "vue";
+import { useRoute } from "vue-router";
 import BDD from "../BDD";
 export default {
     name: 'restaurant-vue',
     setup(){
+        const route = useRoute();
         onMounted(() => {
-            console.log(BDD);
+            BDD.find((restaurant) => {
+                if(restaurant.name === route.params.name){
+                    return restaurant;
+                }
+            } )
         })
     }
 }
